@@ -1,6 +1,5 @@
 # JasperBoy Trading Bot
 
-This repository contains a simple trading bot prototype implemented in Python. The bot runs in a background thread while a Flask server is active. A `SimulationEnvironment` is provided for backtesting and development.
 
 ## Features
 
@@ -8,7 +7,6 @@ This repository contains a simple trading bot prototype implemented in Python. T
 - Trader executes in a separate thread with graceful shutdown
 - Simple simulated market environment for backtesting
 - Unit tests to verify basic functionality
-- Market data caching via `MarketCache` for efficient access
 
 ## Requirements
 
@@ -26,7 +24,7 @@ pip install -r requirements.txt  # or simply `pip install flask`
 ```bash
 python main.py
 ```
-Use `Ctrl+C` to stop the application. The trader thread will terminate cleanly when the server is stopped.
+
 
 ## Running in Google Colab
 
@@ -62,7 +60,7 @@ python -m unittest discover tests
 
 ## Backtesting
 
-The `Backtester` class in `simulation.py` can execute the trader against the `SimulationEnvironment` for a number of steps:
+
 
 ```python
 from trader import Trader

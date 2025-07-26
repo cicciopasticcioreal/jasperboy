@@ -22,20 +22,5 @@ class TraderTestCase(unittest.TestCase):
         results = backtester.run(trader)
         self.assertEqual(results, [1, 2, 3])
 
-    def test_trader_uses_market_cache_once(self):
-        calls = []
-
-        def fetch():
-            calls.append(1)
-            return ["m"]
-
-        stop_event = threading.Event()
-        env = SimulationEnvironment(prices=[1])
-        trader = Trader(stop_event, env, market_fetcher=fetch)
-        thread = threading.Thread(target=trader.run)
-        thread.start()
-        thread.join(timeout=5)
-        self.assertEqual(len(calls), 1)
-
 if __name__ == '__main__':
     unittest.main()
